@@ -1,15 +1,18 @@
+package program;
+
 import calculator.Calculator;
 import calculator.Range;
 
 public class BaseProgram {
 
-	public static void run(Calculator calc, String[] args) {
+	public static void run(PrimeProgram prog, String[] args) {
+		Calculator calc = prog.createCalculator();
 		int topValue = getTopValueSafely(args);
 		int result = calc.countPrimesInRange(Range.r(0, topValue));
 		System.out.println(result);
 	}
 
-	public static int getTopValueSafely(String[] args) {
+	private static int getTopValueSafely(String[] args) {
 		assertArgumentLengths(args);
 		int n = safeParse(args[0]);
 		assertValueRange(n);
