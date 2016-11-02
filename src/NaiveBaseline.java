@@ -14,4 +14,9 @@ public class NaiveBaseline implements PrimeProgram {
 		return new NaiveCalculator();
 	}
 
+	@Override
+	public String name() {
+		return "Naive baseline";
+	}
+
 }

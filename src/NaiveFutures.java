@@ -14,4 +14,9 @@ public class NaiveFutures implements PrimeProgram {
 	public Calculator createCalculator() {
 		return new SplitInFutures(new NaiveCalculator());
 	}
+
+	@Override
+	public String name() {
+		return "Naive futures";
+	}
 }

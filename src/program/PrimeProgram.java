@@ -6,4 +6,5 @@ public interface PrimeProgram {
 
 	Calculator createCalculator();
 
+	String name();
 }

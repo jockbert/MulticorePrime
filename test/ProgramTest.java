@@ -37,10 +37,10 @@ public abstract class ProgramTest {
 		}
 	}
 
-	public static class SieveInitFuturesTest extends ProgramTest {
+	public static class SieveIncrInitFuturesTest extends ProgramTest {
 		@Override
 		PrimeProgram cut() {
-			return new SieveInitFutures();
+			return new SieveIncrInitFutures();
 		}
 	}
 
@@ -85,8 +85,7 @@ public abstract class ProgramTest {
 
 	private void assertCorrectCount(int minExcl, int max, int expectedCount) {
 		Range range = Range.r(minExcl, max);
-		int actualCount = cut().createCalculator()
-				.countPrimesInRange(range);
+		int actualCount = cut().createCalculator().countPrimesInRange(range);
 		String message = "Calculator should return prime count "
 				+ expectedCount + " for range " + range;
 		assertEquals(message, actualCount, expectedCount);

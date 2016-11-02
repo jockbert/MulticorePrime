@@ -31,4 +31,9 @@ public class SieveBaseline implements PrimeProgram {
 		SieveInitializer.sweepInit(sieve);
 		return sieve;
 	}
+
+	@Override
+	public String name() {
+		return "Sieve baseline";
+	}
 }

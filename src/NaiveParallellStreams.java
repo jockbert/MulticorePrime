@@ -14,4 +14,9 @@ public class NaiveParallellStreams implements PrimeProgram {
 	public Calculator createCalculator() {
 		return new InParallelStreamsCalculator(new NaiveCalculator());
 	}
+
+	@Override
+	public String name() {
+		return "Naive parallell streams";
+	}
 }

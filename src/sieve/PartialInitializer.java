@@ -30,9 +30,11 @@ public interface PartialInitializer {
 			}
 
 			void setMultiplesAsNonPrime(final ModifiableSieve sieve, int n) {
-				for (int m = n * 2; m <= sieve.max(); m += n)
+				int start = ((long) n * n) > Integer.MAX_VALUE ? Integer.MAX_VALUE
+						: n * n;
+
+				for (int m = start; m <= sieve.max(); m += n)
 					sieve.setNotPrime(m);
-				// if (sieve.isPrime(n))
 			}
 		};
 	}

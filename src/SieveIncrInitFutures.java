@@ -8,10 +8,10 @@ import calculator.Calculator;
 import calculator.Range;
 import calculator.ReusableSieveCalculator;
 
-public class SieveInitFutures implements PrimeProgram {
+public class SieveIncrInitFutures implements PrimeProgram {
 
 	public static void main(String[] args) {
-		BaseProgram.run(new SieveInitFutures(), args);
+		BaseProgram.run(new SieveIncrInitFutures(), args);
 	}
 
 	@Override
@@ -36,5 +36,10 @@ public class SieveInitFutures implements PrimeProgram {
 		SieveInitializer.incrementalInitialzier(sieve, partialInit);
 
 		return sieve;
+	}
+
+	@Override
+	public String name() {
+		return "Sieve incr. init. with futures";
 	}
 }
