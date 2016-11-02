@@ -3,8 +3,6 @@ package sieve;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -65,8 +63,6 @@ public interface PartialInitializer {
 
 				List<Range> subRanges = Divider.defaultSplit(primeRange);
 
-				ExecutorService SERVICE = Executors.newWorkStealingPool();
-
 				Function<Range, Callable<Integer>> asRunnable = r -> () -> {
 					delegate.clearPrimeMultiples(sieve, r);
 					return 0;
@@ -76,7 +72,7 @@ public interface PartialInitializer {
 						.map(asRunnable).collect(Collectors.toList());
 
 				try {
-					SERVICE.invokeAll(callabels).forEach(f -> {
+					Executor.service().invokeAll(callabels).forEach(f -> {
 						try {
 							f.get();
 						} catch (ExecutionException | InterruptedException e) {

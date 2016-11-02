@@ -10,7 +10,7 @@ public class PerformanceTest {
 		printTest((int) 2e6, new NaiveBaseline(), new NaiveFutures(),
 				new NaiveParallellStreams());
 
-		printTest((int) 2e7, new SieveBaseline(), new SieveIncrInitFutures());
+		printTest((int) 5e7, new SieveBaseline(), new SieveIncrInitFutures());
 
 	}
 
